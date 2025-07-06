@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:encryption="http://www.mulesoft.org/schema/mule/encryption"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/encryption http://www.mulesoft.org/schema/mule/encryption/current/mule-encryption.xsd">
+
+    <encryption:config name="config" configId="configId">
+        <encryption:connection requiredParameter="aValue" />
+    </encryption:config>
+
+    <flow name="sayHiFlow">
+        <encryption:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <encryption:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
